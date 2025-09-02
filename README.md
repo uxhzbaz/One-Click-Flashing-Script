@@ -14,7 +14,7 @@ FlashToBrick.RiskItAll-Flash
 
 · 🔒 AVB 未禁用: 此脚本不会自动禁用 Android 验证启动 (AVB)。刷写 vbmeta 时请自行使用 --disable-verification 等参数。
 
-· 📱 设备特定: 脚本内的分区列表基于特定设备，使用前必须根据您自身的设备分区表进行修改！
+· 📱 脚本内的分区列表基于特定设备，使用前必须根据您自身的设备分区表进行修改！
 
 · 💾 数据清除: 此操作会清除设备上的所有用户数据
 
@@ -22,12 +22,12 @@ FlashToBrick.RiskItAll-Flash
 
 · 🔒 AVB NOT Disabled: This script does NOT automatically disable Android Verified Boot (AVB). You must use parameters like --disable-verification when flashing vbmeta.
 
-· 📱 Device Specific: The partition lists inside the script are based on a specific device. You MUST modify them according to your own device's partition table before use!
+· 📱 The partition list in the current script is based on a specific device. You must modify it according to your own device's partition table before use.  
 
 · 💾 Data Wipe: This process will erase all user data on your device.
 Requirements / 要求
 
-· Unlocked bootloader / 已解锁的bootloader
+· Unlocked bootloader / 已解锁bootloader
 
 · Fastboot access / Fastboot访问权限
 
