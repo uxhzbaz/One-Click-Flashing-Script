@@ -25,7 +25,8 @@ FlashToBrick.RiskItAll-Flash
 · 📱 The partition list in the current script is based on a specific device. You must modify it according to your own device's partition table before use.  
 
 · 💾 Data Wipe: This process will erase all user data on your device.
-Requirements / 要求
+
+**Requirements / 要求**
 
 · **Unlocked bootloader / 已解锁bootloader**
 
