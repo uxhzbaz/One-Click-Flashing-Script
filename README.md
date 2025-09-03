@@ -36,7 +36,11 @@ Requirements / 要求
 · **Adequate battery (>50%) / 充足的电量(>50%)**
 
 **Usage / 使用方法**
+**cows 临时分区清理列表**
 
+**logical 逻辑分区刷写列表**
+
+**parts列表在bootloader模式下刷入列表中的文件到对应的a b分区**
 1. 准备工作:
    · 将设备启动到 fastboot 模式并连接到电脑。1. Ensure device is in fastboot mode
 2. Place required images in images directory / 将所需镜像放入images/imgs="任意"目录下
