@@ -43,8 +43,8 @@ Requirements / 要求
 **parts列表在bootloader模式下刷入列表中的文件到对应的a b分区**
 1. 准备工作:
    · 将设备启动到 fastboot 模式并连接到电脑。1. Ensure device is in fastboot mode
-2. Place required images in images directory / 将所需镜像放入images/imgs="任意"目录下
-   · （至关重要） 根据您的设备修改脚本中的 parts 和 cows 分区列表
+2. Place required images in images directory / 将所需镜像放入imgs="任意"目录下
+   · （至关重要） 根据您的设备修改脚本中的 **parts** **cows** **logical**列表
 3. **Execute the script / 执行脚本:**
 ```bash
 chmod +x FlashToBrick.sh
