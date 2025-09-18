@@ -46,21 +46,14 @@ size() {
 [ -f "$1" ] && stat -c%s "$1" || echo "0"
 }
 run() {
-if eval "$1 >> $L 2>&1"; then
-log "${B}$3${NC} $2 ${G}${OK}${NC}"
-return 0
-else
-log "${B}$3${NC} $2 ${R}${FAIL}${NC}"
-echo "${ML}${SB}: $1" >> $L
-log "${Y}${SB}，是否${JX}？(y/n)${NC}"
-read answer
-case $answer in
-# 用户强行继续,允许
-[Yy]*) return 0;;
-# 用户选择中止, 退出
-*) exit 1;;
-esac
-fi
+    o=$(eval "$1" 2>&1);e=$?;echo "$o">>"$L"
+    if [ $e -eq 0 ] && ! echo "$o"|grep -qi "fail\|error\|no such\|cannot";then
+        log "${B}$3${NC} $2 ${G}${OK}${NC}";return 0
+    else
+        echo "${ML}${SB}: $1">>"$L";echo -e "${R}错误:${NC}\n$o"
+        log "${Y}${SB}，是否${JX}？(y/n)${NC}";read a
+        case $a in [Yy]*) return 0;; *) exit 1;; esac
+    fi
 }
 main() {
 log "${G}${T}${NC}"
