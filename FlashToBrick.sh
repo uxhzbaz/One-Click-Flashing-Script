@@ -35,7 +35,7 @@ return 1
 L="./flash.log"
 echo "$(date)" > $L
 T="砖寄脚本"
-S="按回车键开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" A2="已设A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R2="已进入" R3="请手动进入" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" R7="请手动" C2="按回车键格式化" F4="格式化" R8="重启中" OK="成功" FAIL="失败" SK="跳过(无此文件)" DK="data" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心"
+S="按回车键开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" A2="已设A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R2="已进入" R3="请手动进入" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" R7="请手动" C2="按回车键格式化" F4="格式化" R8="重启中" OK="成功" FAIL="失败" SK="跳过(无此文件)" DK="data" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个"
 log() {
 echo "$1" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" >> $L
 echo -e "$1"
@@ -144,7 +144,7 @@ else
 log "${B}${NC} ${p} ${Y}${SK}${NC}"
 fi
 done
-log "${G}${OK}${SR}${CG}个${FQ}${NC}"
+log "${G}${OK}${SR}${CG}${GE}${FQ}${NC}"
 log "${B}[9/10]${NC} ${R5}${BL}${MS}..."
 run "fastboot reboot bootloader" "${R5}${BL}${MS}"
 if ! wait_for_device "bootloader" 60 "${R2}" "${DD}${BL}${CS}"; then
