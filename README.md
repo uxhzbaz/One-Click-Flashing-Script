@@ -84,8 +84,14 @@ Locate the following code around line 115 in the script, and add AVB disable com
 # 原代码 / Original code:
 run "fastboot flash ${p}_a $plash" "${SR} ${C}${p}_a${NC}->${p}.img ${P}[${s_human}]${NC}" "$C_COUNT"
 ```
+## 📜 Script Output Messages
 
-3. **执行脚本 / Execute the Script**
+The script uses the following English messages for logging and user interaction:
+```
+T="Brick Risk Script" S="Press Enter to start" E1=":Not detected"  E2="Please enter fastboot mode and" D="Detected fastboot" GJ="Critical" ML="Command" CX="Re" A1="Set active slot to A" A2="Slot A set" F1="Flashing" F2="Flashing vbmeta" R1="Reboot to" R2="Entered" R3="Please manually enter" R4="fastbootd" C1="Cleaning COW" F3="Flashing logical" R5="Reboot to" R7="Please manually" C2="Press Enter to format" F4="Formatting" R8="Rebooting" OK="Success" FAIL="Failure" SK="Skipped(File not found)"  DK="data" DEL="Delete" CQ="Reboot" SR="Flashing" JJ="Checking fastboot device" BL="bootloader" FQ="partition" JS="Unlock" JX="Continue" SB="Failed" S1="Device" JC="Checking" YI="Already" DD="Waiting" MS="mode" WC="Error" CS="Timeout" ZZ="Processing" QR="Confirm" JO="Accept" FJ="This operation may erase all data!" JL="Please check the" WE="Not" JR="Enter" LJ="Connect" W="Patient" GE="pcs"
+```
+
+**执行脚本 / Execute the Script**
 
 ```bash
 chmod +x FlashToBrick.sh
