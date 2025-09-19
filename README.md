@@ -12,14 +12,14 @@ This is a Bash script for automating the flashing of partition images in both Bo
 
 ---
 
-## 🔧 功能特性 / Features
+## 🔧 功能特性
 - 自动刷写分区列表中的镜像到a/b两个槽位/逻辑分区  
 - 刷写进度显示：显示彩色化的刷写进度和状态
 
 ---
 
-## ⚠ 重要注意事项 / Important Notes
-- **🔒 AVB 未禁用**: 此脚本不会禁用 Android 验证启动 (AVB)。刷写 vbmeta 时请自行更改使用 `--disable-verification` 等参数  
+## ⚠ 注意事项 / Important Notes
+- **🔒 AVB未禁用**: 此脚本不会禁用 Android 验证启动 (AVB)。刷写 vbmeta 时请自行更改使用 `--disable-verification` 等参数  
 - **📱 设备适配**: 脚本内的默认分区列表基于特定设备，使用前必须根据您自身的设备分区表进行修改  
 - **💾 数据清除**: 此操作会清除设备上的所有用户数据  
 - **⚡ 电量要求**: 确保设备电量充足（>50%）  
@@ -31,7 +31,7 @@ This is a Bash script for automating the flashing of partition images in both Bo
 **Fastboot 访问权限 / Fastboot access**  
 **正确的 USB 驱动 / Proper USB drivers**  
 **充足的电量 (>50%) / Adequate battery (>50%)**  
-**· 💾 Data Wipe: This process will erase all user data on your device.**
+**💾 Data Wipe: This process will erase all user data on your device.**
 ---
 
 ## 🛠️ 配置与使用 / Configuration & Usage
