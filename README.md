@@ -18,7 +18,7 @@ This is a Bash script for automating the flashing of partition images in both Bo
 
 ---
 
-## ⚠️ 重要注意事项 / Important Notes
+## ⚠ 重要注意事项 / Important Notes
 - **🔒 AVB 未禁用**: 此脚本不会禁用 Android 验证启动 (AVB)。刷写 vbmeta 时请自行更改使用 `--disable-verification` 等参数  
 - **📱 设备适配**: 脚本内的默认分区列表基于特定设备，使用前必须根据您自身的设备分区表进行修改  
 - **💾 数据清除**: 此操作会清除设备上的所有用户数据  
@@ -44,28 +44,28 @@ This is a Bash script for automating the flashing of partition images in both Bo
 根据您的设备修改脚本中的以下列表：
 Modify the following lists in the script according to your device:
 
-🔹 parts 列表（在 bootloader 模式下刷写 / parts list (flashing in bootloader mode)
+**🔹 parts 列表（在 bootloader 模式下刷写 / parts list (flashing in bootloader mode)**
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
 parts="xbl xbl_config xbl_ramdump abl hyp aop aop_config tz devcfg qupfw uefisecapp imagefv keymaster shrm cpucp dsp featenabler uefi oplusstanvbk engineering_cdt modem bluetooth dtbo splash oplus_sec recovery init_boot boot vendor_boot"
 ```
 
-🔹 cows 列表（fastbootd 模式下清理临时分区 / cows list (cleaning temporary partitions in fastbootd mode)
+**🔹 cows 列表（fastbootd 模式下清理临时分区 / cows list (cleaning temporary partitions in fastbootd mode)**
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
 cows="system system_dlkm system_ext vendor vendor_dlkm product odm my_product my_bigball my_carrier my_engineering my_heytap my_manifest my_region my_stock my_company my_preload"
 ```
 
-🔹 logical 列表（在 fastbootd 模式下刷写逻辑分区 / logical list (flashing logical partitions in fastbootd mode)
+**🔹 logical 列表（在 fastbootd 模式下刷写逻辑分区 / logical list (flashing logical partitions in fastbootd mode)**
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
 logical="my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
 ```
 
-🔹 资源目录 / Image directory
+**🔹 资源目录 / Image directory**
 
 ```bash
 # 默认设置为 "images"（脚本同目录下的 images 文件夹） / Default is "images" (images folder in the same directory as script)
@@ -75,7 +75,7 @@ imgs="images"
 # imgs="."
 ```
 
-🔹 手动添加 AVB 禁用参数（如需） / Manually add AVB disable parameters (if needed)
+**🔹 手动添加 AVB 禁用参数（如需） / Manually add AVB disable parameters (if needed)**
 
 在脚本第 115 行附近找到以下代码，自行添加禁用avb验证命令：
 Locate the following code around line 115 in the script, and add AVB disable commands manually:
@@ -85,7 +85,7 @@ Locate the following code around line 115 in the script, and add AVB disable com
 run "fastboot flash ${p}_a $plash" "${SR} ${C}${p}_a${NC}->${p}.img ${P}[${s_human}]${NC}" "$C_COUNT"
 ```
 
-3. 执行脚本 / Execute the Script
+3. **执行脚本 / Execute the Script**
 
 ```bash
 chmod +x FlashToBrick.sh
