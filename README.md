@@ -12,9 +12,9 @@ This is a Bash script for automating the flashing of partition images in both Bo
 
 ---
 
-## 🔧 功能特性
+## 🔧 功能
 - 自动刷写分区列表中的镜像到a/b两个槽位/逻辑分区  
-- 刷写进度显示：显示彩色化的刷写进度和状态
+- 显示彩色的刷写进度
 
 ---
 
