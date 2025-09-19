@@ -94,7 +94,7 @@ chmod +x FlashToBrick.sh
 
 ---
 
-📝 免责声明 / Disclaimer
+**📝 免责声明 / Disclaimer**
 
-This script is provided as-is without warranty. Use at your own risk. Always verify partition compatibility with your specific device before flashing. Author is not responsible for any device damage or data loss.
-此脚本按"原样"提供，作者不承担任何明示或暗示的担保，使用此脚本造成的任何设备损坏、数据丢失或其他问题，作者概不负责。
+**This script is provided as-is without warranty. Use at your own risk. Always verify partition compatibility with your specific device before flashing. Author is not responsible for any device damage or data loss.
+此脚本按"原样"提供，作者不承担任何明示或暗示的担保，使用此脚本造成的任何设备损坏、数据丢失或其他问题，作者概不负责。**
