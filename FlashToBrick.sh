@@ -35,7 +35,7 @@ return 1
 L="./flash.log"
 echo "$(date)" > $L
 T="砖寄脚本"
-S="开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R3="请手动" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" F4="格式化" R8="重启" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个" AH="按回车键"
+S="开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R3="请手动" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" F4="格式化" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个" AH="按回车键"
 log(){ echo -e "$1"|awk '{gsub(/\033\[[0-9;]*m/,"");gsub(/\033\[[0-9;]*[KG]/,"");print}'>>"$L";echo -e "$1";}
 size() {
  #使用 stat -c%s 获取镜像大小 无文件输出0
@@ -150,7 +150,7 @@ run "fastboot reboot bootloader" "${R5}${BL}${MS}"
 if ! wait_for_device "bootloader" 60 "${YI}${JR}" "${DD}${BL}${CS}"; then
 log "${R}${R3}${JR}${BL}${NC}"; exit 1;
 fi
-log "${G}${AH}${R8}${NC}"
+log "${G}${AH}${CQ}${NC}"
 read var
 run "fastboot reboot" "${CQ}${S1}" "-"
 log "${Y}${DD}${W}${NC}"
