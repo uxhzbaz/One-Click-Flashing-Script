@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/sh
 R='\e[1;31m'; G='\e[1;32m'; Y='\e[1;33m'; C='\e[1;36m'; B='\e[1;34m'; P='\e[1;35m'; NC='\e[0m'
 fmt_bytes() {
 echo "$1" | awk '
@@ -35,11 +35,8 @@ return 1
 L="./flash.log"
 echo "$(date)" > $L
 T="砖寄脚本"
-S="按回车键开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" A2="已设A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R2="已进入" R3="请手动进入" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" R7="请手动" C2="按回车键格式化" F4="格式化" R8="重启中" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个"
-log() {
-echo "$1" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" >> $L
-echo -e "$1"
-}
+S="开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R2="已进入" R3="请手动进入" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" R7="请手动" F4="格式化" R8="重启" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个" AH="按回车键"
+log(){ echo -e "$1"|awk '{gsub(/\033\[[0-9;]*m/,"");gsub(/\033\[[0-9;]*[KG]/,"");print}'>>"$L";echo -e "$1";}
 size() {
  #使用 stat -c%s 获取镜像大小 无文件输出0
 [ -f "$1" ] && stat -c%s "$1" || echo "0"
@@ -56,9 +53,9 @@ run() {
 }
 main() {
 log "${G}${T}${NC}"
-log "${Y}${S}${NC}"
+log "${Y}${AH}${S}${NC}"
 read var
-log "${B}${NC} ${JJ}${LJ}"
+log "${B}${NC}${JJ}${LJ}"
 fastboot devices | grep -q "fastboot" || {
 log "${R}${E1}${S1}${NC}"
 log "${Y}${E2}${LJ}${NC}"
@@ -89,9 +86,8 @@ exit 1
 fi
 fi
 log "${B}${NC} ${A1}${FQ}..."
-run "fastboot set_active a" "${A1}${FQ}" "002" && log "${G}✓${A2}${NC}"
-log "${B}${NC} ${F4}..."
-log "${Y}${C2}${NC}"
+run "fastboot set_active a" "${A1}${FQ}"
+log "${Y}${AH}${F4}${NC}"
 read var
 run "fastboot -w" "${F4}" "-"
 log "${B}${NC} ${F1}${FQ}..."
@@ -154,7 +150,8 @@ run "fastboot reboot bootloader" "${R5}${BL}${MS}"
 if ! wait_for_device "bootloader" 60 "${R2}" "${DD}${BL}${CS}"; then
 log "${R}${R7}${JR}${BL}${NC}"; exit 1;
 fi
-log "${G}✓${R8}${NC}"
+log "${G}${AH}${R8}${NC}"
+read var
 run "fastboot reboot" "${CQ}${S1}" "-"
 log "${Y}${DD}${W}${NC}"
 }
