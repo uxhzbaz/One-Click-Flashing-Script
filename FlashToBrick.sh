@@ -35,7 +35,7 @@ return 1
 L="./flash.log"
 echo "$(date)" > $L
 T="砖寄脚本"
-S="开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R2="已进入" R3="请手动进入" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" R7="请手动" F4="格式化" R8="重启" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个" AH="按回车键"
+S="开始" E1=":未检测到" E2="请进入fastboot模式并" D="检测到fastboot" GJ="关键" ML="命令" CX="重新" A1="设置活动为A槽" F1="刷入" F2="刷入vbmeta" R1="重启到" R3="请手动" R4="fastbootd" C1="清理COW" F3="刷入逻辑" R5="重启到" F4="格式化" R8="重启" OK="成功" FAIL="失败" SK="跳过(无此文件)" DEL="删除" CQ="重启" SR="刷入" JJ="检查fastboot设备" BL="bootloader" FQ="分区" JS="解锁" JX="继续" SB="失败" S1="设备" JC="检查" YI="已" DD="等待" MS="模式" WC="错误" CS="超时" ZZ="正在" QR="确认" JO="接受" FJ="操作可能清除所有数据！" JL="请查看被" WE="未" JR="进入" LJ="连接" W="耐心" GE="个" AH="按回车键"
 log(){ echo -e "$1"|awk '{gsub(/\033\[[0-9;]*m/,"");gsub(/\033\[[0-9;]*[KG]/,"");print}'>>"$L";echo -e "$1";}
 size() {
  #使用 stat -c%s 获取镜像大小 无文件输出0
@@ -122,8 +122,8 @@ done
 # 重启到fastbootd
 log "${B}${NC} ${R1}${R4}${MS}..."
 run "fastboot reboot fastboot" "${R1}${R4}${MS}"
-if ! wait_for_device "fastbootd" 60 "${R2}" "${DD}${R4}${CS}"; then
-log "${R}${R3}${R4}${NC}"; exit 1;
+if ! wait_for_device "fastbootd" 60 "${YI}${JR}" "${DD}${R4}${CS}"; then
+log "${R}${R3}${JR}${R4}${NC}"; exit 1;
 fi
 log "${B}${NC} ${C1}${FQ}..."
 cows="system system_dlkm system_ext vendor vendor_dlkm product odm my_product my_bigball my_carrier my_engineering my_heytap my_manifest my_region my_stock my_company my_preload"
@@ -147,8 +147,8 @@ done
 log "${G}${OK}${SR}${CG}${GE}${FQ}${NC}"
 log "${B}${NC} ${R5}${BL}${MS}..."
 run "fastboot reboot bootloader" "${R5}${BL}${MS}"
-if ! wait_for_device "bootloader" 60 "${R2}" "${DD}${BL}${CS}"; then
-log "${R}${R7}${JR}${BL}${NC}"; exit 1;
+if ! wait_for_device "bootloader" 60 "${YI}${JR}" "${DD}${BL}${CS}"; then
+log "${R}${R3}${JR}${BL}${NC}"; exit 1;
 fi
 log "${G}${AH}${R8}${NC}"
 read var
