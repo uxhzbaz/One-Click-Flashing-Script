@@ -1,8 +1,27 @@
 # 一键刷机脚本 (One-Click Flash Script)
 ## FlashToBrick.RiskItAll-Flash
 
-**⚠警告 / WARNING**: 这是一个实验性脚本。可能导致设备变砖。请谨慎使用！  
-**This is an experimental script. Improper use may brick your device. Use with extreme caution!**
+**⚠警告 / WARNING**: ** unlock Critical Partitions** **bootloader unlock**
+在fastboot模式下运行/fastboot mode
+```bash
+fastboot oem device-info
+```
+```
+(bootloader) Verity mode: true
+(bootloader) Device unlocked: true
+(bootloader) Device critical unlocked: true
+(bootloader) Charger screen enabled: false
+OKAY [  0.001s]
+Finished. Total time: 0.001s
+```
+如果/if**(bootloader) Device critical unlocked: false**/**(bootloader) Device unlocked: false**
+
+刷写分区必定导致设备变砖/Flashing partitions will BRICK the device  
+在解锁bootloader后立即使用/Use immediately after unlocking the bootloader
+**解锁关键分区/Unlock critical partitions**
+```bash
+fastboot flashing unlock_critical
+```
 
 ---
 
@@ -12,9 +31,10 @@ This is a Bash script for automating the flashing of partition images in both Bo
 
 ---
 
-## 🔧 功能
-- 自动刷写分区列表中的镜像到a/b两个槽位/逻辑分区  
-- 显示彩色的刷写进度
+## 🔧 功能 / Features
+- 自动刷写分区列表中的镜像到a/b两个槽位/逻辑分区
+-  Automatically flashes images from the partition list to both slot A/B / logical partitions  
+- 显示彩色的刷写进度 / Displays flashing progress in color
 
 ---
 
@@ -44,7 +64,7 @@ Modify the following lists in the script according to your device:
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
-parts="xbl xbl_config xbl_ramdump abl hyp aop aop_config tz devcfg qupfw uefisecapp imagefv keymaster shrm cpucp dsp featenabler uefi oplusstanvbk engineering_cdt modem bluetooth dtbo splash oplus_sec recovery init_boot boot vendor_boot"
+parts="init_boot boot vendor_boot"
 ```
 
 **cows 列表**（fastbootd 模式下清理临时分区 / **cows list** (cleaning temporary partitions in fastbootd mode)
@@ -73,8 +93,8 @@ imgs="images"
 
 **手动添加 AVB 禁用参数（如需） / Manually add AVB disable parameters** (if needed)
 
-在脚本第 115 行附近找到以下代码，自行添加禁用avb验证命令：
-Locate the following code around line 115 in the script, and add AVB disable commands manually:
+在脚本第 97 行附近找到以下代码，自行添加禁用avb验证命令：
+Locate the following code around line 97 in the script, and add AVB disable commands manually:
 
 ```bash
 # 原代码 / Original code:
