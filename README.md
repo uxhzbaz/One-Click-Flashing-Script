@@ -2,7 +2,9 @@
 ## FlashToBrick.RiskItAll-Flash
 
 **⚠警告 / WARNING**
-**unlock Critical Partitions** **bootloader unlock**
+
+**unlock Critical Partitions** **unlock bootloader** **unlock critical partitions**
+
 fastboot模式/fastboot mode
 ```bash
 fastboot oem device-info
