@@ -1,8 +1,9 @@
 # 一键刷机脚本 (One-Click Flash Script)
 ## FlashToBrick.RiskItAll-Flash
 
-**⚠警告 / WARNING**: ** unlock Critical Partitions** **bootloader unlock**
-在fastboot模式下运行/fastboot mode
+**⚠警告 / WARNING**
+**unlock Critical Partitions** **bootloader unlock**
+fastboot模式/fastboot mode
 ```bash
 fastboot oem device-info
 ```
