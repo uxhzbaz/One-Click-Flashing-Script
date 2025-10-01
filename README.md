@@ -3,7 +3,7 @@
 
 **⚠警告 / WARNING**
 
-**unlock Critical Partitions** **unlock bootloader** **unlock critical partitions**
+**unlock Critical Partitions** **unlock bootloader**
 
 fastboot模式/fastboot mode
 ```bash
@@ -17,7 +17,7 @@ fastboot oem device-info
 OKAY [  0.001s]
 Finished. Total time: 0.001s
 ```
-如果/if**(bootloader) Device critical unlocked: false**/**(bootloader) Device unlocked: false**
+如果 / if **(bootloader) Device critical unlocked: false** /**(bootloader) Device unlocked: false**
 
 刷写分区必定导致设备变砖/Flashing partitions will BRICK the device  
 在解锁bootloader后立即使用/Use immediately after unlocking the bootloader
