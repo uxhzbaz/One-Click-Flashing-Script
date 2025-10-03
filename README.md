@@ -42,6 +42,7 @@ This is a Bash script for automating the flashing of partition images in both Bo
 ---
 
 ## ⚠ 注意事项 / Important Notes
+**unlock Critical Partitions** **unlock bootloader**
 - **🔒 AVB未禁用**: 此脚本不会禁用 Android 验证启动 (AVB)。刷写 vbmeta 时请自行更改使用 `--disable-verification` 等参数  
 - **📱 设备适配**: 脚本内的默认分区列表基于特定设备，使用前必须根据您自身的设备分区表进行修改  
 - **💾 数据清除**: 此操作会清除设备上的所有用户数据**💾 Data Wipe**: This process will erase all user data on your device.
@@ -121,6 +122,6 @@ chmod +x FlashToBrick.sh
 
 **📝 免责声明 / Disclaimer**
 
-**This script is provided as-is without warranty. Use at your own risk. Always verify partition compatibility with your specific device before flashing. Author is not responsible for any device damage or data loss.
+**This script is provided as-is without warranty. Use at your own risk. Always verify partition compatibility with your specific device before flashing. Author is not responsible for any device damage or data loss.**
 
-此脚本按"原样"提供，作者不承担任何明示或暗示的担保，使用此脚本造成的任何设备损坏、数据丢失或其他问题，作者概不负责。**
+**此脚本按"原样"提供，作者不承担任何明示或暗示的担保，使用此脚本造成的任何设备损坏、数据丢失或其他问题，作者概不负责。**
