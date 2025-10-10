@@ -7,7 +7,7 @@ imgs="images"
 L="./flash.log"
 #分区刷写列表
 #bootloader模式下刷入的文件列表
-parts="boot init_boot"
+parts="modem"
 #分区清理列表
 cows="system system_dlkm system_ext vendor vendor_dlkm product odm my_product my_bigball my_carrier my_engineering my_heytap my_manifest my_region my_stock my_company my_preload"
 #逻辑分区
