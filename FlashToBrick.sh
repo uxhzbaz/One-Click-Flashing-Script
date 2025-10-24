@@ -13,6 +13,7 @@ ps="modem"
 ns="" #以实际情况修改
 #临时分区清理列表
 cows="my_bigball my_carrier my_engineering my_heytap my_manifest my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
+#a/b分区 逻辑分区列表
 fd="odm product system system_dlkm system_ext vendor vendor_dlkm"
 fmt_bytes() {
 echo "$1" | awk '
