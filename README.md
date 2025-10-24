@@ -77,8 +77,10 @@ ps="modem"
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
 cows="my_bigball my_carrier my_engineering my_heytap my_manifest my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
 ```
-#独立分区刷写列表 (例如: frp, persist等)如无留空
+## 独立分区刷写列表 (例如: frp, persist等)如无留空
+```bash
 ns="" #以实际情况修改
+```
 
 **fd 列表**（在 fastbootd 模式下 / **fd list** (flashing in fastbootd mode)
 
