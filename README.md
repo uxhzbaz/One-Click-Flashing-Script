@@ -64,25 +64,27 @@ This is a Bash script for automating the flashing of partition images in both Bo
 根据您的设备修改脚本中的以下列表：
 Modify the following lists in the script according to your device:
 
-**parts 列表**（在 bootloader 模式下刷写 / **parts list** (flashing in bootloader mode)
+**ps 列表**（在 bootloader 模式下刷写 / **ps** (flashing in bootloader mode)
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
-parts="init_boot boot vendor_boot"
+ps="modem"
 ```
 
 **cows 列表**（fastbootd 模式下清理临时分区 / **cows list** (cleaning temporary partitions in fastbootd mode)
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
-cows="system system_dlkm system_ext vendor vendor_dlkm product odm my_product my_bigball my_carrier my_engineering my_heytap my_manifest my_region my_stock my_company my_preload"
+cows="my_bigball my_carrier my_engineering my_heytap my_manifest my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
 ```
+#独立分区刷写列表 (例如: frp, persist等)如无留空
+ns="" #以实际情况修改
 
-**logical 列表**（在 fastbootd 模式下刷写逻辑分区 / **logical list** (flashing logical partitions in fastbootd mode)
+**fd 列表**（在 fastbootd 模式下 / **fd list** (flashing in fastbootd mode)
 
 ```bash
 # 默认列表（请根据您的设备修改） / Default list (modify according to your device)
-logical="my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
+fd="odm product system system_dlkm system_ext vendor vendor_dlkm"
 ```
 
 **资源目录** / **Image directory**
@@ -98,7 +100,7 @@ imgs="images"
 **手动添加 AVB 禁用参数（如需） / Manually add AVB disable parameters** (if needed)
 
 在脚本第 97 行附近找到以下代码，自行添加禁用avb验证命令：
-Locate the following code around line 97 in the script, and add AVB disable commands manually:
+Locate the following code around line 109 in the script, and add AVB disable commands manually:
 
 ```bash
 # 原代码 / Original code:
