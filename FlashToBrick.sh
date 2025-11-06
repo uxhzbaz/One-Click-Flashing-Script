@@ -7,13 +7,13 @@ imgs="images"
 L="./flash.log"
 #刷写列表
 #bootloader模式刷写列表
-ps="modem"
+ps="modem boot init_boot recovery"
 #fastbootd刷写列表↓
 #独立分区刷写列表 (例如: frp, persist等)如无留空
 ns="" #以实际情况修改
 #临时分区清理列表
 cows="my_bigball my_carrier my_engineering my_heytap my_manifest my_product my_region my_stock odm product system system_dlkm system_ext vendor vendor_dlkm"
-#a/b分区 逻辑分区列表
+#a/b分区及逻辑分区刷写列表
 fd="odm product system system_dlkm system_ext vendor vendor_dlkm"
 fmt_bytes() {
 echo "$1" | awk '
